@@ -4,63 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mechanical Flip Counter</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        /* Custom 3D styles not covered by Tailwind utilities */
-        .perspective-container {
-            perspective: 1000px;
-        }
-        
-        .drum-container {
-            transform-style: preserve-3d;
-            /* Will be animated via JS */
-        }
-        
-        .drum-face {
-            backface-visibility: hidden;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #1a1a1a;
-            color: #f0f0f0;
-        }
-
-        /* Gradient overlay for cylindrical look */
-        .glass-overlay {
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,1) 0%, 
-                rgba(0,0,0,0.4) 15%, 
-                rgba(255,255,255,0.05) 45%, 
-                rgba(255,255,255,0.05) 55%, 
-                rgba(0,0,0,0.4) 85%, 
-                rgba(0,0,0,1) 100%);
-            pointer-events: none;
-            z-index: 10;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
-        }
-        
-        /* Font styling for the digits */
-        .digit-font {
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            font-size: 3.5rem;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        /* Specific dimensions for the drum calculation
-           Height: 80px
-           Faces: 10
-           Angle per face: 36deg
-           Radius = (80 / 2) / tan(18deg) ≈ 40 / 0.3249 ≈ 123px
-        */
-        .drum-height {
-            height: 80px;
-        }
-    </style>
 </head>
 <body class="bg-neutral-900 text-white min-h-screen flex flex-col items-center justify-center font-sans">
 
